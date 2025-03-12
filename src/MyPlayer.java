@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.Arrays;
 
 public class MyPlayer {
     public Chip[][] gameBoard;
@@ -11,6 +12,7 @@ public class MyPlayer {
          * This code will run just once, when the game opens.
          * Add your code here.
          */
+
     }
 
     public Point move(Chip[][] pBoard) {
@@ -18,6 +20,7 @@ public class MyPlayer {
         System.out.println("MyPlayer Move");
 
         gameBoard = pBoard;
+        toColumns();
         int column = 0;
         int row = 0;
 
@@ -34,4 +37,23 @@ public class MyPlayer {
         return myMove;
     }
 
+    public void toColumns() {
+
+        for (int x = 0; x < gameBoard.length; x++) {
+            for (int y = 0; y < gameBoard[x].length; y++) {
+                if(gameBoard[x][y].isAlive){
+                    System.out.println();
+                }
+
+
+            }
+        }
+
+    }
 }
+
+
+
+
+
+
