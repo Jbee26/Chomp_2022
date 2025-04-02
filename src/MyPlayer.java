@@ -38,16 +38,25 @@ public class MyPlayer {
     }
 
     public void toColumns() {
+        columns = new int[10];
 
         for (int x = 0; x < gameBoard.length; x++) {
             for (int y = 0; y < gameBoard[x].length; y++) {
                 if(gameBoard[x][y].isAlive){
-                    System.out.println();
+                    columns[y] = columns[y]+1;
+                    System.out.println(Arrays.toString(columns));
+
+
+
                 }
 
 
             }
         }
+
+    }
+
+    public void nineteen(){
 
     }
 }
