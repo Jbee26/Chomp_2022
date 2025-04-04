@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Arrays;
 
 public class MyPlayer {
@@ -24,6 +26,7 @@ public class MyPlayer {
         int column = 0;
         int row = 0;
 
+
         row = 1;
         column = 1;
 
@@ -35,6 +38,34 @@ public class MyPlayer {
 
         Point myMove = new Point(row, column);
         return myMove;
+    }
+
+    public static List<int[]> valids(int rows, int cols) {
+        ArrayList<int[]> valids = new ArrayList<>();
+
+        for(int x = 0; x < cols; x++ ){
+            for (int y = 0; y <= x; y++){
+                for(int z = 0; z <= y; z++){
+                    valids.add(new int[]{x, y, z});
+
+                }
+
+
+            }
+        }
+        return valids;
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     public void toColumns() {
@@ -56,9 +87,7 @@ public class MyPlayer {
 
     }
 
-    public void nineteen(){
 
-    }
 }
 
 
