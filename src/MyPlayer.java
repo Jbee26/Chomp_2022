@@ -9,6 +9,7 @@ public class MyPlayer {
 
     public MyPlayer() {
         columns = new int[10];
+        nineteen();
 
         /***
          * This code will run just once, when the game opens.
@@ -23,6 +24,7 @@ public class MyPlayer {
 
         gameBoard = pBoard;
         toColumns();
+
         int column = 0;
         int row = 0;
 
@@ -43,10 +45,14 @@ public class MyPlayer {
     public static List<int[]> valids(int rows, int cols) {
         ArrayList<int[]> valids = new ArrayList<>();
 
-        for(int x = 0; x < cols; x++ ){
-            for (int y = 0; y <= x; y++){
-                for(int z = 0; z <= y; z++){
-                    valids.add(new int[]{x, y, z});
+
+        for(int x = 1; x <=3; x++ ){
+            for (int y = 0; y <= 3; y++){
+                for(int z = 0; z <= 3; z++){
+                    System.out.println(x + " " + y + " " + z);
+
+
+                    // valids.add(new int[]{x, y, z});
 
                 }
 
@@ -63,6 +69,13 @@ public class MyPlayer {
 
 
 
+
+
+
+    }
+
+    public void nineteen(){
+        System.out.println(valids(3,3));
 
 
 
