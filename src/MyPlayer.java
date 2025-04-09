@@ -10,6 +10,7 @@ public class MyPlayer {
     public MyPlayer() {
         columns = new int[10];
         nineteen();
+        afterNineteen();
 
         /***
          * This code will run just once, when the game opens.
@@ -48,9 +49,9 @@ public class MyPlayer {
 
         for(int x = 1; x <=3; x++ ){
             for (int y = 0; y <= 3; y++){
-                if(x > y) {
+                if(x >= y) {
                     for (int z = 0; z <= 3; z++) {
-                        if(z < y){
+                        if(z <= y){
                             System.out.println(x + " " + y + " " + z);
 
                     }
@@ -85,6 +86,12 @@ public class MyPlayer {
         System.out.println(valids(3,3));
 
 
+
+    }
+
+    public void afterNineteen(){
+
+        for{
 
     }
 
