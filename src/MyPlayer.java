@@ -49,7 +49,9 @@ public class MyPlayer {
         for(int x = 1; x <=3; x++ ){
             for (int y = 0; y <= 3; y++){
                 for(int z = 0; z <= 3; z++){
-                    System.out.println(x + " " + y + " " + z);
+                    if(z < y && y < x) {
+                        System.out.println(x + " " + y + " " + z);
+                    }
 
 
                     // valids.add(new int[]{x, y, z});
