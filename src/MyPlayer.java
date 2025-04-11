@@ -57,9 +57,6 @@ public class MyPlayer {
                     }
                 }
 
-
-
-
                     // valids.add(new int[]{x, y, z});
 
                 }
@@ -82,6 +79,22 @@ public class MyPlayer {
 
     }
 
+
+    public static List<int[]> aValids(int rows, int cols) {
+        ArrayList<int[]> aValids = new ArrayList<>();
+
+        aValids(3,3);
+
+
+
+
+
+
+
+
+
+    }
+
     public void nineteen(){
         System.out.println(valids(3,3));
 
@@ -90,8 +103,9 @@ public class MyPlayer {
     }
 
     public void afterNineteen(){
+        System.out.println(aValids(3,3));
 
-        for{
+       
 
     }
 
