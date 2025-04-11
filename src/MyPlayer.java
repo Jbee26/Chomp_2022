@@ -45,6 +45,8 @@ public class MyPlayer {
 
     public static List<int[]> valids(int rows, int cols) {
         ArrayList<int[]> valids = new ArrayList<>();
+        ArrayList<int[]> aValids = new ArrayList<>();
+
 
 
         for(int x = 1; x <=3; x++ ){
@@ -53,6 +55,11 @@ public class MyPlayer {
                     for (int z = 0; z <= 3; z++) {
                         if(z <= y){
                             System.out.println(x + " " + y + " " + z);
+                            if (x > 1){
+                                x = x
+
+                                                                                                //work here!
+                            }
 
                     }
                 }
@@ -64,17 +71,10 @@ public class MyPlayer {
 
             }
         }
+
+
+
         return valids;
-
-
-
-
-
-
-
-
-
-
 
 
     }
@@ -83,15 +83,30 @@ public class MyPlayer {
     public static List<int[]> aValids(int rows, int cols) {
         ArrayList<int[]> aValids = new ArrayList<>();
 
-        aValids(3,3);
+        for (int x = 1; x <= 3; x++) {
+            if (x > 1)
+                x = x - 1;
+            for (int y = 0; y <= 3; y++) {
+                if (y > 0) {
+                    y = y - 1;
+                }
+                for (int z = 0; z <= 3; z++) {
+                    if (z > 0) {
+                        z = z - 1;
+                    }
+                    System.out.println(x + " " + y + " " + z);
+                }
+
+            }
+
+
+            //  aValids(3,3);
 
 
 
 
-
-
-
-
+        }
+        return aValids;
 
     }
 
