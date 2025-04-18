@@ -10,7 +10,7 @@ public class MyPlayer {
     public MyPlayer() {
         columns = new int[10];
         nineteen();
-        afterNineteen();
+       // afterNineteen();
 
         /***
          * This code will run just once, when the game opens.
@@ -56,7 +56,14 @@ public class MyPlayer {
                         if(z <= y){
                             System.out.println(x + " " + y + " " + z);
                             if (x > 1){
-                                x = x
+                                x = x -1;
+                                }
+                                else if (y > 0) {
+                                    y = y - 1;
+                                }
+                                else if(z > 0){
+                                    z = z - 1;
+                                }
 
                                                                                                 //work here!
                             }
