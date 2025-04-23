@@ -87,49 +87,41 @@ public class MyPlayer {
 
     public List<int[]> aValids(int x, int y, int z) {
         ArrayList<int[]> aValids = new ArrayList<>();
+        int Z1 =  z;
+        int Y1 = y;
+        int X1 = x;
 
-//        for (int x1 = 1; x1 <= 3; x1++) {
-//
-//
-//            for (int y1 = 0; y1 <= 3; y1++) {
-//
-//                for (int z1 = 0; z1 <= 3; z1++) {
-//
-//                    System.out.println(x1 + " " + y1 + " " + z1);
-//                }
-//
-//            }
-//
-//
-//
-//
-//
-//
-//
-//        }
 
-        //change the last col
 
         for (int Z = z - 1; Z >= 0; Z--) {
             System.out.println(x + " " + y + " " + Z);
-
-
-            //attempting  to change middle
-
-            for (int Y = y - 1; Y >= 0; Y--) {
-                if (Z <= Y) {
-                    for (int X = x - 1; X >= 1; X--) {
-                        if (X >= Y) {
-                            System.out.println(X + " " + Y + " " + Z);
-                        }
-                    }
-                }
-
-                //}
-            }
         }
 
-        //change the first col
+
+                for (int Y = y - 1; Y >= 0; Y--) {
+                        if (Z1 <= Y1) {
+
+
+                            System.out.println(x + " " + Y + " " + Z1);
+                        }
+                        if (Y < Z1){
+                            System.out.println(x + " " + Y1 + " " + Z1);
+
+                        }
+                    }
+
+                        for (int X = x - 1; X >= 1; X--) {
+                            if (X >= Y1) {
+                                System.out.println(X + " " + Y1 + " " + Z1);
+                        }
+                    }
+
+
+
+
+
+
+
 
 
 
@@ -156,7 +148,7 @@ public class MyPlayer {
     }
 
     public void afterNineteen(){
-      //  System.out.println(aValids(3,3));
+      System.out.println(aValids(3,3,3));
 
        
 
