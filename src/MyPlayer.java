@@ -43,7 +43,7 @@ public class MyPlayer {
         return myMove;
     }
 
-    public static List<int[]> valids(int rows, int cols) {
+    public List<int[]> valids(int rows, int cols) {
         ArrayList<int[]> valids = new ArrayList<>();
         ArrayList<int[]> aValids = new ArrayList<>();
 
@@ -54,19 +54,16 @@ public class MyPlayer {
                 if(x >= y) {
                     for (int z = 0; z <= 3; z++) {
                         if(z <= y){
+                            System.out.println("new board");
                             System.out.println(x + " " + y + " " + z);
-                            if (x > 1){
-                                x = x -1;
-                                }
-                                else if (y > 0) {
-                                    y = y - 1;
-                                }
-                                else if(z > 0){
-                                    z = z - 1;
-                                }
+                            System.out.println("________________________");
+                            aValids(x,y,z);
 
-                                                                                                //work here!
-                            }
+
+
+
+
+
 
                     }
                 }
@@ -84,38 +81,72 @@ public class MyPlayer {
         return valids;
 
 
+
     }
 
 
-    public static List<int[]> aValids(int rows, int cols) {
+    public List<int[]> aValids(int x, int y, int z) {
         ArrayList<int[]> aValids = new ArrayList<>();
 
-        for (int x = 1; x <= 3; x++) {
-            if (x > 1)
-                x = x - 1;
-            for (int y = 0; y <= 3; y++) {
-                if (y > 0) {
-                    y = y - 1;
-                }
-                for (int z = 0; z <= 3; z++) {
-                    if (z > 0) {
-                        z = z - 1;
+//        for (int x1 = 1; x1 <= 3; x1++) {
+//
+//
+//            for (int y1 = 0; y1 <= 3; y1++) {
+//
+//                for (int z1 = 0; z1 <= 3; z1++) {
+//
+//                    System.out.println(x1 + " " + y1 + " " + z1);
+//                }
+//
+//            }
+//
+//
+//
+//
+//
+//
+//
+//        }
+
+        //change the last col
+
+        for (int Z = z - 1; Z >= 0; Z--) {
+            System.out.println(x + " " + y + " " + Z);
+
+
+            //attempting  to change middle
+
+            for (int Y = y - 1; Y >= 0; Y--) {
+                if (Z <= Y) {
+                    for (int X = x - 1; X >= 1; X--) {
+                        if (X >= Y) {
+                            System.out.println(X + " " + Y + " " + Z);
+                        }
                     }
-                    System.out.println(x + " " + y + " " + z);
                 }
 
+                //}
             }
-
-
-            //  aValids(3,3);
-
-
-
-
         }
-        return aValids;
 
+        //change the first col
+
+
+
+        return aValids;
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
     public void nineteen(){
         System.out.println(valids(3,3));
@@ -125,7 +156,7 @@ public class MyPlayer {
     }
 
     public void afterNineteen(){
-        System.out.println(aValids(3,3));
+      //  System.out.println(aValids(3,3));
 
        
 
