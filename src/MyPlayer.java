@@ -26,6 +26,7 @@ public class MyPlayer {
         gameBoard = pBoard;
         toColumns();
 
+
         int column = 0;
         int row = 0;
 
@@ -121,7 +122,7 @@ public class MyPlayer {
                 }
                 if (X < Y1) {
                     Y1 = Y1 - 1;
-                   // System.out.println(X + " " + Y1 + " " + Z1);
+
 
                 }
                 System.out.println(X + " " + Y1 + " " + Z1);
@@ -141,6 +142,8 @@ public class MyPlayer {
 
         return aValids;
     }
+
+
 
 
     public void nineteen() {
