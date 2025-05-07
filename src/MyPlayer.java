@@ -6,10 +6,22 @@ import java.util.Arrays;
 public class MyPlayer {
     public Chip[][] gameBoard;
     public int[] columns;
+    ArrayList<Board> loseB = new ArrayList<>();
+    ArrayList<Board> winB = new ArrayList<>();
+
+
+
+
+
 
     public MyPlayer() {
         columns = new int[10];
+        loseB.add( new Board(1,0,0,false,0,0));
+
         nineteen();
+
+
+
         // afterNineteen();
 
         /***
@@ -34,6 +46,7 @@ public class MyPlayer {
         row = 1;
         column = 1;
 
+
         /***
          * This code will run each time the "MyPlayer" button is pressed.
          * Add your code to return the row and the column of the chip you want to take.
@@ -46,7 +59,8 @@ public class MyPlayer {
 
     public List<int[]> valids(int rows, int cols) {
         ArrayList<int[]> valids = new ArrayList<>();
-        ArrayList<int[]> aValids = new ArrayList<>();
+
+
 
 
         for (int x = 1; x <= 3; x++) {
@@ -87,19 +101,26 @@ public class MyPlayer {
 
         for (int Z = z - 1; Z >= 0; Z--) {
             System.out.println(x + " " + y + " " + Z);
+            if(x == loseB.get(0).x && y == loseB.get(0).y && Z == loseB.get(0).z){
+                System.out.println("yay");
+            }
         }
 
         for (int Y = y - 1; Y >= 0; Y--) {
             if (Z1 <= Y) {
                 System.out.println(x + " " + Y + " " + Z1);
+                if(x == loseB.get(0).x && Y == loseB.get(0).y && Z1 == loseB.get(0).z){
+                    System.out.println("yay");
+                }
 
             }
             if (Y < Z1) {
-              //  System.out.println("hi");
+                //  System.out.println("hi");
                 Z1 = Z1 - 1;
                 System.out.println(x + " " + Y + " " + Z1);
-
-
+                if(x == loseB.get(0).x && Y == loseB.get(0).y && Z1 == loseB.get(0).z){
+                    System.out.println("yay");
+                }
 
 
             }
@@ -107,15 +128,17 @@ public class MyPlayer {
 
         }
 
-                Z1 = z;
+        Z1 = z;
 
         for (int X = x - 1; X >= 1; X--) {
             if (X >= Y1 && X > Z1) {
 
                 System.out.println(X + " " + Y1 + " " + Z1);
-            } else
-            {
-                if (X < Z1){
+                if(X == loseB.get(0).x && Y1 == loseB.get(0).y && Z1 == loseB.get(0).z){
+                    System.out.println("yay");
+                }
+            } else {
+                if (X < Z1) {
                     Z1 = Z1 - 1;
 
 
@@ -127,9 +150,16 @@ public class MyPlayer {
                 }
                 System.out.println(X + " " + Y1 + " " + Z1);
 
+                if(X == loseB.get(0).x && Y1 == loseB.get(0).y && Z1 == loseB.get(0).z){
+                    System.out.println("yay");
+                }
+
+
+
+
+
 
             }
-
 
 
         }
@@ -139,10 +169,8 @@ public class MyPlayer {
         Z1 = z;
 
 
-
         return aValids;
     }
-
 
 
 

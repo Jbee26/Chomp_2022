@@ -1,34 +1,43 @@
-import java.util.List;
-
 public class Board {
 
     public int x;
     public int y;
     public int z;
     public boolean winLose;
-    public int bMove;
+    public int rowBMove;
+    public int colBMove;
 
 
-    public Board(int x, int y, int z, boolean winLose, int bMove) {
+    public Board(int x1, int y1, int z1, boolean winLose1, int bMove1, int colBMove1) {
+        x = x1;
+        y = y1;
+        z = z1;
+        winLose = winLose1;
+        rowBMove = bMove1;
+        colBMove = colBMove1;
+
+        print();
 
 
-        for (int x = 1; x <= 3; x++) {
-            for (int y = 0; y <= 3; y++) {
-                if (x >= y) {
-                    for (int z = 0; z <= 3; z++) {
-                        if (z <= y) {
-                            System.out.println("new board");
-                            System.out.println(x + " " + y + " " + z);
-                            System.out.println("________________________");
 
 
-                        }
 
-                    }
-                }
 
-            }
+    }
+
+    public void print(){
+        System.out.println(x);
+        System.out.println(y);
+        System.out.println(z);
+        if (winLose == true){
+            System.out.println("Win");
         }
+        else{
+            System.out.println("Lose");
+        }
+        System.out.println(this.rowBMove);
+        System.out.println(colBMove);
+
     }
 }
 
