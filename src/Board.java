@@ -8,15 +8,13 @@ public class Board {
     public int colBMove;
 
 
-    public Board(int x1, int y1, int z1, boolean winLose1, int bMove1, int colBMove1) {
+    public Board(int x1, int y1, int z1) {
         x = x1;
         y = y1;
         z = z1;
-        winLose = winLose1;
-        rowBMove = bMove1;
-        colBMove = colBMove1;
 
-        print();
+
+
 
 
 
@@ -26,9 +24,7 @@ public class Board {
     }
 
     public void print(){
-        System.out.println(x);
-        System.out.println(y);
-        System.out.println(z);
+        System.out.println(x +" " +  y + " " + z);
         if (winLose == true){
             System.out.println("Win");
         }
