@@ -72,6 +72,16 @@ public class MyPlayer {
                             System.out.println(x + " " + y + " " + z);
                             System.out.println("________________________");
                             aValids(x, y, z);
+                            if(x <= 3 && y == 0 && z ==0){
+                                winB.add(new Board(x,y,z,true,))
+                            }
+                            if (x == 1 && y== 1 && z == 1){
+                                winB.add(new Board(x,y,z,true,))
+                            }
+                            else{
+                                loseB.add(new Board(x,y,z,false,))
+                            }
+
 
 
                         }
@@ -94,6 +104,8 @@ public class MyPlayer {
 
     public List<int[]> aValids(int x, int y, int z) {
         ArrayList<int[]> aValids = new ArrayList<>();
+
+
         int Z1 = z;
         int Y1 = y;
         int X1 = x;
@@ -153,6 +165,12 @@ public class MyPlayer {
                 if(X == loseB.get(0).x && Y1 == loseB.get(0).y && Z1 == loseB.get(0).z){
                     System.out.println("yay");
                 }
+
+
+
+
+
+
 
 
 
