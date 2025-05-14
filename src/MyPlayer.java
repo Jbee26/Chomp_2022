@@ -206,6 +206,8 @@ public class MyPlayer {
             w.winLose = true;
             winB.add(w);
             System.out.println("added to win boards");
+            System.out.println("best move:" + bRow + "," + bCol);
+
         }
         if(!isYay){
             Board l = new Board(x,y,z);
