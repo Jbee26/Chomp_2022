@@ -23,18 +23,18 @@ public class Board {
 
     }
 
-    public void print(){
-        System.out.println(x +" " +  y + " " + z);
-        if (winLose == true){
-            System.out.println("Win");
-        }
-        else{
-            System.out.println("Lose");
-        }
-        System.out.println(this.rowBMove);
-        System.out.println(colBMove);
-
-    }
+//    public void print(){
+//        System.out.println(x +" " +  y + " " + z);
+//        if (winLose == true){
+//            System.out.println("Win");
+//        }
+//        else{
+//            System.out.println("Lose");
+//        }
+//        System.out.println(this.rowBMove);
+//        System.out.println(colBMove);
+//
+//    }
 }
 
 
