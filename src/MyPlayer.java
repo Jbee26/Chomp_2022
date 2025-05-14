@@ -208,7 +208,8 @@ public class MyPlayer {
             Board l = new Board(x,y,z);
             l.winLose = false;
             loseB.add(l);
-            System.out.println("added to lose boards");
+            System.out.println("added to lose boards|No best moves");
+
         }
 
         return aValids;
