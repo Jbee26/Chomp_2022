@@ -10,6 +10,9 @@ public class MyPlayer {
     ArrayList<Board> winB = new ArrayList<>();
     public int bCol;
     public int bRow;
+    public int bX;
+    public int bY;
+    public int bZ;
 
 
 
@@ -115,8 +118,11 @@ public class MyPlayer {
                 if (x == loseB.get(m).x && y == loseB.get(m).y && Z == loseB.get(m).z) {
                     System.out.println("yay");
                     isYay = true;
-                    bRow = 3;
-                    bCol = 3;
+                    bX = 3 - x;
+                    bY = 3 - y;
+                    bZ = Z;
+
+
 
 
                 }
