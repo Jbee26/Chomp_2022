@@ -118,9 +118,25 @@ public class MyPlayer {
                 if (x == loseB.get(m).x && y == loseB.get(m).y && Z == loseB.get(m).z) {
                     System.out.println("yay");
                     isYay = true;
-                    bX = 3 - x;
-                    bY = 3 - y;
-                    bZ = Z;
+                    bX = x - loseB.get(m).x;
+                    bY = y - loseB.get(m).y;
+                    bZ = z - loseB.get(m).z;
+                    if (bX > 0){
+                        bRow = loseB.get(m).x;
+                        bCol = 0;
+
+                    }
+                    if(bY > 0){
+                        bRow = loseB.get(m).y;
+                        bCol = 1;
+
+
+                    }
+                    else if (bX ==0 && bY == 0){
+                        bRow = loseB.get(m).z;
+                        bCol = 2;
+
+                    }
 
 
 
@@ -142,8 +158,30 @@ public class MyPlayer {
                     if (x== loseB.get(m).x && Y == loseB.get(m).y && Z1 == loseB.get(m).z) {
                         System.out.println("yay");
                         isYay = true;
-                        bRow = 3;
-                        bCol = 3;
+
+
+
+                        bX = x - loseB.get(m).x;
+                        bY = y - loseB.get(m).y;
+                        bZ = z - loseB.get(m).z;
+                        if (bX > 0){
+                            bRow = loseB.get(m).x;
+                            bCol = 0;
+
+                        }
+                        if(bY > 0){
+                            bRow = loseB.get(m).y;
+                            bCol = 1;
+
+
+                        }
+                        else if (bX ==0 && bY == 0){
+                            bRow = loseB.get(m).z;
+                            bCol = 2;
+
+                        }
+
+
 
                     }
 
@@ -163,19 +201,31 @@ public class MyPlayer {
                     if (x == loseB.get(m).x && Y == loseB.get(m).y && Z1 == loseB.get(m).z) {
                         System.out.println("yay");
                         isYay = true;
-                        bRow = 3;
-                        bCol = 3;
+
+                        bX = x - loseB.get(m).x;
+                        bY = y - loseB.get(m).y;
+                        bZ = z - loseB.get(m).z;
+                        if (bX > 0){
+                            bRow = loseB.get(m).x;
+                            bCol = 0;
+
+                        }
+                        if(bY > 0){
+                            bRow = loseB.get(m).y;
+                            bCol = 1;
+
+
+                        }
+                        if (bX ==0 && bY == 0){
+                            bRow = loseB.get(m).z;
+                            bCol = 2;
+
+                        }
+
 
                     }
-
                 }
-
-
-
-
             }
-
-
         }
 
         Z1 = z;
@@ -188,8 +238,26 @@ public class MyPlayer {
                     if (X == loseB.get(m).x && Y1 == loseB.get(m).y && Z1 == loseB.get(m).z) {
                         System.out.println("yay");
                         isYay = true;
-                        bRow = 3;
-                        bCol = 3;
+                        bX = x - loseB.get(m).x;
+                        bY = y - loseB.get(m).y;
+                        bZ = z - loseB.get(m).z;
+                        if (bX > 0){
+                            bRow = loseB.get(m).x;
+                            bCol = 0;
+
+                        }
+                        if(bY > 0){
+                            bRow = loseB.get(m).y;
+                            bCol = 1;
+
+
+                        }
+                        else if (bX ==0 && bY == 0){
+                            bRow = loseB.get(m).z;
+                            bCol = 2;
+
+                        }
+
 
                     }
                 }
@@ -200,14 +268,35 @@ public class MyPlayer {
                 if (X < Y1) {
                     Y1 = Y1 - 1;
                 }
+
+
+
                 System.out.println(X + " " + Y1 + " " + Z1);
 
                 for(int m = 0; m < loseB.size(); m++ ) {
                     if (X == loseB.get(m).x && Y1 == loseB.get(m).y && Z1 == loseB.get(m).z) {
                         System.out.println("yay");
                         isYay = true;
-                        bRow = 3;
-                        bCol = 3;
+                        bX = x - loseB.get(m).x;
+                        bY = y - loseB.get(m).y;
+                        bZ = z - loseB.get(m).z;
+                        if (bX > 0){
+                            bRow = loseB.get(m).x;
+                            bCol = 0;
+
+                        }
+                        if(bY > 0){
+                            bRow = loseB.get(m).y;
+                            bCol = 1;
+
+
+                        }
+                        else if (bX ==0 && bY == 0){
+                            bRow = loseB.get(m).z;
+                            bCol = 2;
+
+                        }
+
 
                     }
                 }
