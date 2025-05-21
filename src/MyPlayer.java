@@ -52,13 +52,12 @@ public class MyPlayer {
         column = 1;
 
 
-        /***
-         * This code will run each time the "MyPlayer" button is pressed.
-         * Add your code to return the row and the column of the chip you want to take.
-         * You'll be returning a data type called Point which consists of two integers.
-         */
 
+//Start here
+
+        
         Point myMove = new Point(row, column);
+
         return myMove;
     }
 
@@ -308,6 +307,8 @@ public class MyPlayer {
         Z1 = z;
         if(isYay){
             Board w = new Board(x,y,z);
+            w.colBMove = bCol;
+            w.rowBMove = bRow;
             w.winLose = true;
             winB.add(w);
             System.out.println("added to win boards");
@@ -317,6 +318,8 @@ public class MyPlayer {
         if(!isYay){
             Board l = new Board(x,y,z);
             l.winLose = false;
+            l.colBMove = 0;
+            l.rowBMove = 0;
             loseB.add(l);
             System.out.println("Added to lose boards|No best moves");
 
@@ -346,7 +349,7 @@ public class MyPlayer {
             for (int y = 0; y < gameBoard[x].length; y++) {
                 if (gameBoard[x][y].isAlive) {
                     columns[y] = columns[y] + 1;
-                    System.out.println(Arrays.toString(columns));
+
 
 
                 }
@@ -354,6 +357,7 @@ public class MyPlayer {
 
             }
         }
+        System.out.println(Arrays.toString(columns));
 
     }
 
