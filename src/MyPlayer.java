@@ -54,8 +54,34 @@ public class MyPlayer {
 
 
 //Start here
+    for(int g = 0; g < winB.size(); g++)
+        if(winB.get(g).x == columns[0]) {
+            if(winB.get(g).y == columns[1]){
+                if (winB.get(g).z == columns[2]){
+                    row = winB.get(g).rowBMove;
+                    column = winB.get(g).colBMove;
 
 
+
+                }
+            }
+
+        }
+    for(int u = 0; u < loseB.size(); u++){
+        if(loseB.get(u).x == columns[0]) {
+            if(loseB.get(u).y == columns[1]){
+                if (loseB.get(u).z == columns[2]){
+                    row = loseB.get(u).rowBMove;
+                    column = loseB.get(u).colBMove;
+
+
+
+                }
+            }
+
+        }
+
+    }
 
         Point myMove = new Point(row, column);
 
