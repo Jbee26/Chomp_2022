@@ -55,7 +55,8 @@ public class MyPlayer {
 
 //Start here
 
-        
+
+
         Point myMove = new Point(row, column);
 
         return myMove;
@@ -144,10 +145,7 @@ public class MyPlayer {
 
             }
 
-//            if(x == 2 && y == 1 && Z == 0){
-//                isYay = true;
-//
-//            }
+
         }
 
         for (int Y = y - 1; Y >= 0; Y--) {
@@ -189,10 +187,7 @@ public class MyPlayer {
 
             }
 
-//            if(x == 2 && Y == 1 && Z1 == 0){
-//                isYay = false;
-//
-//            }
+
             if (Y < Z1) {
                 Z1 = Z1 - 1;
                 System.out.println(x + " " + Y + " " + Z1);
@@ -220,8 +215,6 @@ public class MyPlayer {
                             bCol = 2;
 
                         }
-
-
                     }
                 }
             }
