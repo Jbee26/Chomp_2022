@@ -13,6 +13,9 @@ public class MyPlayer {
     public int bX;
     public int bY;
     public int bZ;
+    double random;
+
+
 
 
 
@@ -22,6 +25,7 @@ public class MyPlayer {
     public MyPlayer() {
         columns = new int[10];
         loseB.add( new Board(1,0,0));
+
 
         nineteen();
 
@@ -50,6 +54,13 @@ public class MyPlayer {
 
         row = 1;
         column = 1;
+
+
+
+
+
+
+
 
 
 
@@ -136,6 +147,8 @@ public class MyPlayer {
         int Y1 = y;
         int X1 = x;
         boolean isYay = false;
+
+
 
 
         for (int Z = z - 1; Z >= 0; Z--) {
@@ -324,6 +337,7 @@ public class MyPlayer {
 
         Y1 = y;
         Z1 = z;
+        random = (int)(Math.random()*3);
         if(isYay){
             Board w = new Board(x,y,z);
             w.colBMove = bCol;
@@ -337,10 +351,22 @@ public class MyPlayer {
         if(!isYay){
             Board l = new Board(x,y,z);
             l.winLose = false;
-            l.colBMove = 0;
-            l.rowBMove = 0;
+            l.colBMove = (int) random;
+
+            if(l.colBMove > 0){
+                l.rowBMove = (int) (random - 1);
+            }
+
+            if(bY == 1){
+                l.rowBMove = (int) (random - 1);
+            }
+
+            if(random == 0){
+                l.rowBMove = x;
+            }
+
             loseB.add(l);
-            System.out.println("Added to lose boards|No best moves");
+            System.out.println("Added to lose boards|No best moves|Hope for the best!");
 
         }
 
