@@ -351,19 +351,23 @@ public class MyPlayer {
         if(!isYay){
             Board l = new Board(x,y,z);
             l.winLose = false;
-            l.colBMove = (int) random;
-            if(columns[0] > 0 ) {
-                l.rowBMove = columns[0] + 1;
+          //  l.colBMove = (int) random;
+            if(x > 0 ) {
+                l.rowBMove = x - 1;
+                l.colBMove =0;
             }
-            else if(columns[1] > 0){
-                l.rowBMove = columns[1];
+            else if(y > 0){
+                l.rowBMove = y - 1;
+                l.colBMove =1;
             }
 
-            else if (columns[2] > 0 ){
-                l.rowBMove = columns[2];
+            else if (z > 0 ){
+                l.rowBMove = z - 1;
+                l.colBMove =2;
             }
 
             loseB.add(l);
+            System.out.println("move col: "  +l.colBMove+   " row: "+ l.rowBMove);
             System.out.println("Added to lose boards|No best moves|Hope for the best!");
 
         }
