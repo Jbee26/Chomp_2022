@@ -352,17 +352,15 @@ public class MyPlayer {
             Board l = new Board(x,y,z);
             l.winLose = false;
             l.colBMove = (int) random;
-
-            if(l.colBMove > 0){
-                l.rowBMove = (int) (random - 1);
+            if(columns[0] > 0 ) {
+                l.rowBMove = columns[0] + 1;
+            }
+            else if(columns[1] > 0){
+                l.rowBMove = columns[1];
             }
 
-            if(bY == 1){
-                l.rowBMove = (int) (random - 1);
-            }
-
-            if(random == 0){
-                l.rowBMove = x;
+            else if (columns[2] > 0 ){
+                l.rowBMove = columns[2];
             }
 
             loseB.add(l);
@@ -402,6 +400,7 @@ public class MyPlayer {
 
             }
         }
+
         System.out.println(Arrays.toString(columns));
 
     }
