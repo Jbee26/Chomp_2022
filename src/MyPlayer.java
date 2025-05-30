@@ -13,6 +13,7 @@ public class MyPlayer {
     public int bX;
     public int bY;
     public int bZ;
+    public int bT;
     double random;
 
 
@@ -24,7 +25,7 @@ public class MyPlayer {
 
     public MyPlayer() {
         columns = new int[10];
-        loseB.add( new Board(1,0,0));
+        loseB.add( new Board(1,0,0, 0));
 
 
         nineteen();
@@ -69,6 +70,7 @@ public class MyPlayer {
         if(winB.get(g).x == columns[0]) {
             if(winB.get(g).y == columns[1]){
                 if (winB.get(g).z == columns[2]){
+                    if (winB.get(g).t == columns[3])
                     row = winB.get(g).rowBMove;
                     column = winB.get(g).colBMove;
 
@@ -82,8 +84,10 @@ public class MyPlayer {
         if(loseB.get(u).x == columns[0]) {
             if(loseB.get(u).y == columns[1]){
                 if (loseB.get(u).z == columns[2]){
-                    row = loseB.get(u).rowBMove;
-                    column = loseB.get(u).colBMove;
+                    if(loseB.get(u).t == columns[3]){
+                        row = loseB.get(u).rowBMove;
+                        column = loseB.get(u).colBMove;
+                    }
 
 
 
@@ -105,22 +109,25 @@ public class MyPlayer {
 
 
 
-        for (int x = 1; x <= 3; x++) {
-            for (int y = 0; y <= 3; y++) {
+        for (int x = 1; x <= 4; x++) {
+            for (int y = 0; y <= 4; y++) {
                 if (x >= y) {
-                    for (int z = 0; z <= 3; z++) {
+                    for (int z = 0; z <= 4; z++) {
                         if (z <= y) {
-                            System.out.println("________________________");
-                            System.out.println("new board");
-                            System.out.println(x + " " + y + " " + z);
-                            System.out.println("________________________");
-                            aValids(x, y, z);
+                            for (int t = 0; t <= 4; t++) {
+                                if (z >= t) {
+                                    System.out.println("________________________");
+                                    System.out.println("new board");
+                                    System.out.println(x + " " + y + " " + z);
+                                    System.out.println("________________________");
+                                    aValids(x, y, z);
 
 
 //
 //
 
-
+                                }
+                            }
                         }
                     }
 
@@ -351,7 +358,7 @@ public class MyPlayer {
         if(!isYay){
             Board l = new Board(x,y,z);
             l.winLose = false;
-          //  l.colBMove = (int) random;
+
             if(x > 0 ) {
                 l.rowBMove = x - 1;
                 l.colBMove =0;
