@@ -17,19 +17,12 @@ public class MyPlayer {
     double random;
 
 
-
-
-
-
-
-
     public MyPlayer() {
         columns = new int[10];
-        loseB.add( new Board(1,0,0, 0));
+        loseB.add(new Board(1, 0, 0, 0));
 
 
         nineteen();
-
 
 
         // afterNineteen();
@@ -57,46 +50,36 @@ public class MyPlayer {
         column = 1;
 
 
-
-
-
-
-
-
-
-
 //Start here
-    for(int g = 0; g < winB.size(); g++)
-        if(winB.get(g).x == columns[0]) {
-            if(winB.get(g).y == columns[1]){
-                if (winB.get(g).z == columns[2]){
-                    if (winB.get(g).t == columns[3])
-                    row = winB.get(g).rowBMove;
-                    column = winB.get(g).colBMove;
+        for (int g = 0; g < winB.size(); g++)
+            if (winB.get(g).x == columns[0]) {
+                if (winB.get(g).y == columns[1]) {
+                    if (winB.get(g).z == columns[2]) {
+                        if (winB.get(g).t == columns[3])
+                            row = winB.get(g).rowBMove;
+                        column = winB.get(g).colBMove;
 
 
-
-                }
-            }
-
-        }
-    for(int u = 0; u < loseB.size(); u++){
-        if(loseB.get(u).x == columns[0]) {
-            if(loseB.get(u).y == columns[1]){
-                if (loseB.get(u).z == columns[2]){
-                    if(loseB.get(u).t == columns[3]){
-                        row = loseB.get(u).rowBMove;
-                        column = loseB.get(u).colBMove;
                     }
-
-
-
                 }
+
+            }
+        for (int u = 0; u < loseB.size(); u++) {
+            if (loseB.get(u).x == columns[0]) {
+                if (loseB.get(u).y == columns[1]) {
+                    if (loseB.get(u).z == columns[2]) {
+                        if (loseB.get(u).t == columns[3]) {
+                            row = loseB.get(u).rowBMove;
+                            column = loseB.get(u).colBMove;
+                        }
+
+
+                    }
+                }
+
             }
 
         }
-
-    }
 
         Point myMove = new Point(row, column);
 
@@ -105,8 +88,6 @@ public class MyPlayer {
 
     public List<int[]> valids(int rows, int cols) {
         ArrayList<int[]> valids = new ArrayList<>();
-
-
 
 
         for (int x = 1; x <= 4; x++) {
@@ -118,9 +99,9 @@ public class MyPlayer {
                                 if (z >= t) {
                                     System.out.println("________________________");
                                     System.out.println("new board");
-                                    System.out.println(x + " " + y + " " + z);
+                                    System.out.println(x + " " + y + " " + z + " " + t);
                                     System.out.println("________________________");
-                                    aValids(x, y, z);
+                                    aValids(x, y, z, t);
 
 
 //
@@ -130,7 +111,6 @@ public class MyPlayer {
                             }
                         }
                     }
-
 
 
                 }
@@ -146,45 +126,45 @@ public class MyPlayer {
     }
 
 
-    public List<int[]> aValids(int x, int y, int z) {
+    public List<int[]> aValids(int x, int y, int z, int t) {
         ArrayList<int[]> aValids = new ArrayList<>();
 
 
         int Z1 = z;
         int Y1 = y;
         int X1 = x;
+        int T1 = t;
         boolean isYay = false;
 
 
-
-
-        for (int Z = z - 1; Z >= 0; Z--) {
-            System.out.println(x + " " + y + " " + Z);
-            for(int m = 0; m < loseB.size(); m++ ) {
-                if (x == loseB.get(m).x && y == loseB.get(m).y && Z == loseB.get(m).z) {
+        for (int T = t - 1; T >= 0; T--) {
+            System.out.println(x + " " + y + " " + z + " " + T1);
+            for (int m = 0; m < loseB.size(); m++) {
+                if (x == loseB.get(m).x && y == loseB.get(m).y && z == loseB.get(m).z && t == loseB.get(m).t) {
                     System.out.println("yay");
                     isYay = true;
                     bX = x - loseB.get(m).x;
                     bY = y - loseB.get(m).y;
                     bZ = z - loseB.get(m).z;
-                    if (bX > 0){
+                    bT = t - loseB.get(m).t;
+                    if (bX > 0) {
                         bRow = loseB.get(m).x;
                         bCol = 0;
 
                     }
-                    if(bY > 0){
+                    if (bY > 0) {
                         bRow = loseB.get(m).y;
                         bCol = 1;
 
 
-                    }
-                    else if (bX ==0 && bY == 0){
+                    } else if (bZ > 0) {
                         bRow = loseB.get(m).z;
                         bCol = 2;
 
+                    } else if (bX == 0 && bY == 0 && bZ == 0) {
+                        bRow = loseB.get(m).t;
+                        bCol = 3;
                     }
-
-
 
 
                 }
@@ -193,37 +173,119 @@ public class MyPlayer {
 
 
         }
+
+
+        for (int Z = z - 1; Z >= 0; Z--) {
+            if (Z >= T1) {
+                System.out.println(x + " " + y + " " + z + " " + T1);
+                for (int m = 0; m < loseB.size(); m++) {
+                    if (x == loseB.get(m).x && y == loseB.get(m).y && z == loseB.get(m).z && t == loseB.get(m).t) {
+                        System.out.println("yay");
+                        isYay = true;
+                        bX = x - loseB.get(m).x;
+                        bY = y - loseB.get(m).y;
+                        bZ = z - loseB.get(m).z;
+                        bT = t - loseB.get(m).t;
+                        if (bX > 0) {
+                            bRow = loseB.get(m).x;
+                            bCol = 0;
+
+                        }
+                        if (bY > 0) {
+                            bRow = loseB.get(m).y;
+                            bCol = 1;
+
+
+                        }
+                        if (bZ > 0) {
+                            bRow = loseB.get(m).z;
+                            bCol = 2;
+
+                        } else if (bX == 0 && bY == 0 && bZ == 0) {
+                            bRow = loseB.get(m).t;
+                            bCol = 3;
+                        }
+
+
+                    }
+
+                }
+
+
+            } else {
+                if (Z1 < T1) {
+                    T1 = T1 - 1;
+                }
+
+            }
+            if (T1 <= Z1) {
+                System.out.println(x + " " + y + " " + z + " " + T1);
+                for (int m = 0; m < loseB.size(); m++) {
+                    if (x == loseB.get(m).x && Y1 == loseB.get(m).y && Z1 == loseB.get(m).z && T1 == loseB.get(m).t) {
+                        System.out.println("yay");
+                        isYay = true;
+
+                        bX = x - loseB.get(m).x;
+                        bY = y - loseB.get(m).y;
+                        bZ = z - loseB.get(m).z;
+                        bT = t - loseB.get(m).t;
+                        if (bX > 0) {
+                            bRow = loseB.get(m).x;
+                            bCol = 0;
+
+                        }
+                        if (bY > 0) {
+                            bRow = loseB.get(m).y;
+                            bCol = 1;
+
+
+                        } else if (bZ > 0) {
+                            bRow = loseB.get(m).z;
+                            bCol = 2;
+
+                        } else if (bX == 0 && bY == 0 && bZ == 0) {
+                            bRow = loseB.get(m).t;
+                            bCol = 3;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
 
         for (int Y = y - 1; Y >= 0; Y--) {
-            if (Z1 <= Y) {
-                System.out.println(x + " " + Y + " " + Z1);
-                for(int m = 0; m < loseB.size(); m++ ) {
-                    if (x== loseB.get(m).x && Y == loseB.get(m).y && Z1 == loseB.get(m).z) {
+            if (Y < T1 && Y <= Z1) {
+                System.out.println(x + " " + Y + " " + z + " " + T1);
+                for (int m = 0; m < loseB.size(); m++) {
+                    if (x == loseB.get(m).x && y == loseB.get(m).y && z == loseB.get(m).z && t == loseB.get(m).t) {
                         System.out.println("yay");
                         isYay = true;
-
 
 
                         bX = x - loseB.get(m).x;
                         bY = y - loseB.get(m).y;
                         bZ = z - loseB.get(m).z;
-                        if (bX > 0){
+                        bT = t - loseB.get(m).t;
+                        if (bX > 0) {
                             bRow = loseB.get(m).x;
                             bCol = 0;
 
                         }
-                        if(bY > 0){
+                        if (bY > 0) {
                             bRow = loseB.get(m).y;
                             bCol = 1;
 
 
-                        }
-                        else if (bX ==0 && bY == 0){
+                        } else if (bZ > 0) {
                             bRow = loseB.get(m).z;
                             bCol = 2;
 
+                        } else if (bX == 0 && bY == 0 && bZ == 0) {
+                            bRow = loseB.get(m).t;
+                            bCol = 3;
                         }
-
 
 
                     }
@@ -232,192 +294,213 @@ public class MyPlayer {
 
 
             }
-
-
-            if (Y < Z1) {
-                Z1 = Z1 - 1;
-                System.out.println(x + " " + Y + " " + Z1);
-                for(int m = 0; m < loseB.size(); m++ ) {
-                    if (x == loseB.get(m).x && Y == loseB.get(m).y && Z1 == loseB.get(m).z) {
-                        System.out.println("yay");
-                        isYay = true;
-
-                        bX = x - loseB.get(m).x;
-                        bY = y - loseB.get(m).y;
-                        bZ = z - loseB.get(m).z;
-                        if (bX > 0){
-                            bRow = loseB.get(m).x;
-                            bCol = 0;
-
-                        }
-                        if(bY > 0){
-                            bRow = loseB.get(m).y;
-                            bCol = 1;
-
-
-                        }
-                        if (bX ==0 && bY == 0){
-                            bRow = loseB.get(m).z;
-                            bCol = 2;
-
-                        }
-                    }
-                }
-            }
-        }
-
-        Z1 = z;
-
-        for (int X = x - 1; X >= 1; X--) {
-            if (X >= Y1 && X > Z1) {
-
-                System.out.println(X + " " + Y1 + " " + Z1);
-                for(int m = 0; m < loseB.size(); m++ ) {
-                    if (X == loseB.get(m).x && Y1 == loseB.get(m).y && Z1 == loseB.get(m).z) {
-                        System.out.println("yay");
-                        isYay = true;
-                        bX = x - loseB.get(m).x;
-                        bY = y - loseB.get(m).y;
-                        bZ = z - loseB.get(m).z;
-                        if (bX > 0){
-                            bRow = loseB.get(m).x;
-                            bCol = 0;
-
-                        }
-                        if(bY > 0){
-                            bRow = loseB.get(m).y;
-                            bCol = 1;
-
-
-                        }
-                        else if (bX ==0 && bY == 0){
-                            bRow = loseB.get(m).z;
-                            bCol = 2;
-
-                        }
-
-
-                    }
-                }
-            } else {
-                if (X < Z1) {
+            else{
+                if (Y1 < Z1) {
                     Z1 = Z1 - 1;
                 }
-                if (X < Y1) {
-                    Y1 = Y1 - 1;
+                if (T1 > Y1) {
+                    T1 = T1 - 1;
                 }
+        }
 
 
 
-                System.out.println(X + " " + Y1 + " " + Z1);
 
-                for(int m = 0; m < loseB.size(); m++ ) {
-                    if (X == loseB.get(m).x && Y1 == loseB.get(m).y && Z1 == loseB.get(m).z) {
-                        System.out.println("yay");
-                        isYay = true;
-                        bX = x - loseB.get(m).x;
-                        bY = y - loseB.get(m).y;
-                        bZ = z - loseB.get(m).z;
-                        if (bX > 0){
-                            bRow = loseB.get(m).x;
-                            bCol = 0;
+                if (Z1 <= Y1) {
+                    System.out.println(x + " " + y + " " + z + " " + T1);
+                    for (int m = 0; m < loseB.size(); m++) {
+                        if (x == loseB.get(m).x && Y1 == loseB.get(m).y && Z1 == loseB.get(m).z && T1 == loseB.get(m).t) {
+                            System.out.println("yay");
+                            isYay = true;
 
+                            bX = x - loseB.get(m).x;
+                            bY = y - loseB.get(m).y;
+                            bZ = z - loseB.get(m).z;
+                            bT = t - loseB.get(m).t;
+                            if (bX > 0) {
+                                bRow = loseB.get(m).x;
+                                bCol = 0;
+
+                            }
+                            if (bY > 0) {
+                                bRow = loseB.get(m).y;
+                                bCol = 1;
+
+
+                            } else if (bZ > 0) {
+                                bRow = loseB.get(m).z;
+                                bCol = 2;
+
+                            } else if (bX == 0 && bY == 0 && bZ == 0) {
+                                bRow = loseB.get(m).t;
+                                bCol = 3;
+                            }
                         }
-                        if(bY > 0){
-                            bRow = loseB.get(m).y;
-                            bCol = 1;
-
-
-                        }
-                        else if (bX ==0 && bY == 0){
-                            bRow = loseB.get(m).z;
-                            bCol = 2;
-
-                        }
-
-
                     }
                 }
             }
+
+            Z1 = z;
+
+
+            for (int X = x - 1; X >= 1; X--) {
+                if (X >= Y1 && X > Z1 && X > T1) {
+
+                    System.out.println(X + " " + Y1 + " " + Z1 + " " + T1);
+                    for (int m = 0; m < loseB.size(); m++) {
+                        if (X == loseB.get(m).x && Y1 == loseB.get(m).y && Z1 == loseB.get(m).z && T1 == loseB.get(m).t) {
+                            System.out.println("yay");
+                            isYay = true;
+
+                            bX = x - loseB.get(m).x;
+                            bY = y - loseB.get(m).y;
+                            bZ = z - loseB.get(m).z;
+                            bT = t - loseB.get(m).t;
+                            if (bX > 0) {
+                                bRow = loseB.get(m).x;
+                                bCol = 0;
+
+                            }
+                            if (bY > 0) {
+                                bRow = loseB.get(m).y;
+                                bCol = 1;
+
+
+                            } else if (bZ > 0) {
+                                bRow = loseB.get(m).z;
+                                bCol = 2;
+
+                            } else if (bX == 0 && bY == 0 && bZ == 0) {
+                                bRow = loseB.get(m).t;
+                                bCol = 3;
+                            }
+
+
+                        }
+                    }
+                } else {
+                    if (X < Z1) {
+                        Z1 = Z1 - 1;
+                    }
+                    if (X < Y1) {
+                        Y1 = Y1 - 1;
+                    }
+                    if (X < T1) {
+                        T1 = T1 - 1;
+                    }
+
+                    if (Y1 <= X1) {
+                        System.out.println(X + " " + Y1 + " " + Z1 + " " + T1);
+
+                        for (int m = 0; m < loseB.size(); m++) {
+                            if (X == loseB.get(m).x && Y1 == loseB.get(m).y && Z1 == loseB.get(m).z && T1 == loseB.get(m).t) {
+                                System.out.println("yay");
+                                isYay = true;
+                                bX = x - loseB.get(m).x;
+                                bY = y - loseB.get(m).y;
+                                bZ = z - loseB.get(m).z;
+                                bT = t - loseB.get(m).t;
+                                if (bX > 0) {
+                                    bRow = loseB.get(m).x;
+                                    bCol = 0;
+
+                                }
+                                if (bY > 0) {
+                                    bRow = loseB.get(m).y;
+                                    bCol = 1;
+
+
+                                } else if (bZ > 0) {
+                                    bRow = loseB.get(m).z;
+                                    bCol = 2;
+
+                                } else if (bX == 0 && bY == 0 && bZ == 0) {
+                                    bRow = loseB.get(m).t;
+                                    bCol = 3;
+                                }
+
+
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            Y1 = y;
+            Z1 = z;
+            random = (int) (Math.random() * 4);
+            if (isYay) {
+                Board w = new Board(x, y, z, t);
+                w.colBMove = bCol;
+                w.rowBMove = bRow;
+                w.winLose = true;
+                winB.add(w);
+                System.out.println("added to win boards");
+                System.out.println("best move:" + bRow + "," + bCol);
+
+            }
+            if (!isYay) {
+                Board l = new Board(x, y, z, t);
+                l.winLose = false;
+
+                if (x > 0) {
+                    l.rowBMove = x - 1;
+                    l.colBMove = 0;
+                } else if (y > 0) {
+                    l.rowBMove = y - 1;
+                    l.colBMove = 1;
+                } else if (z > 0) {
+                    l.rowBMove = z - 1;
+                    l.colBMove = 2;
+                } else if (t > 0) {
+                    l.rowBMove = t - 1;
+                    l.colBMove = 3;
+                }
+
+                loseB.add(l);
+                System.out.println("move col: " + l.colBMove + " row: " + l.rowBMove);
+                System.out.println("Added to lose boards|No best moves|Hope for the best!");
+
+            }
+
+            return aValids;
         }
 
 
-        Y1 = y;
-        Z1 = z;
-        random = (int)(Math.random()*3);
-        if(isYay){
-            Board w = new Board(x,y,z);
-            w.colBMove = bCol;
-            w.rowBMove = bRow;
-            w.winLose = true;
-            winB.add(w);
-            System.out.println("added to win boards");
-            System.out.println("best move:" + bRow + "," + bCol);
+        public void nineteen () {
+            System.out.println(valids(4, 4));
 
-        }
-        if(!isYay){
-            Board l = new Board(x,y,z);
-            l.winLose = false;
-
-            if(x > 0 ) {
-                l.rowBMove = x - 1;
-                l.colBMove =0;
-            }
-            else if(y > 0){
-                l.rowBMove = y - 1;
-                l.colBMove =1;
-            }
-
-            else if (z > 0 ){
-                l.rowBMove = z - 1;
-                l.colBMove =2;
-            }
-
-            loseB.add(l);
-            System.out.println("move col: "  +l.colBMove+   " row: "+ l.rowBMove);
-            System.out.println("Added to lose boards|No best moves|Hope for the best!");
 
         }
 
-        return aValids;
-    }
+        public void afterNineteen () {
+            System.out.println(aValids(4, 4, 4, 4));
 
 
+        }
 
-    public void nineteen() {
-        System.out.println(valids(3, 3));
+        public void toColumns () {
+            columns = new int[10];
+
+            for (int x = 0; x < gameBoard.length; x++) {
+                for (int y = 0; y < gameBoard[x].length; y++) {
+                    if (gameBoard[x][y].isAlive) {
+                        columns[y] = columns[y] + 1;
 
 
-    }
-
-    public void afterNineteen() {
-        System.out.println(aValids(3, 3, 3));
-
-
-    }
-
-    public void toColumns() {
-        columns = new int[10];
-
-        for (int x = 0; x < gameBoard.length; x++) {
-            for (int y = 0; y < gameBoard[x].length; y++) {
-                if (gameBoard[x][y].isAlive) {
-                    columns[y] = columns[y] + 1;
-
+                    }
 
 
                 }
-
-
             }
+
+            System.out.println(Arrays.toString(columns));
+
         }
 
-        System.out.println(Arrays.toString(columns));
 
     }
-
-
-}
 
 
 
